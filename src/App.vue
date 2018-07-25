@@ -59,5 +59,8 @@ margin-size = 5px
         background-color: #42b983
         color: #fff
         margin: margin-size
+        cursor: pointer
+        &:hover
+          color: rgba(255, 255, 255, 0.6)
 
 </style>

@@ -59,8 +59,7 @@ export default {
 <style lang="stylus" scoped>
 div
   opacity: 1
-  &.fade
-    transition: opacity .5s
+  transition-property: opacity
   &.invisible
     opacity: 0
 </style>

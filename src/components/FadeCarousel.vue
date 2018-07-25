@@ -6,6 +6,7 @@
           class="page-container"
           :class="pageContainerClass"
           v-for="(page, pageIndex) in pages"
+          :style="pageContainerStyle(pageIndex)"
           :key="`page-${pageIndex}`"
         >
           <cell
@@ -164,6 +165,14 @@ export default {
         default:
         return currentPage + 1 === pageIndex || currentPage - 1 === pageIndex
       }
+    },
+    pageContainerStyle(pageIndex) {
+      if (this.currentPage !== pageIndex) {
+        return {
+          pointerEvents: 'none'
+        }
+      }
+      return {}
     },
     hide() {
       this.hidden = true
