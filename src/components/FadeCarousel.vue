@@ -203,6 +203,13 @@ export default {
       }
       this.play()
     },
+    refresh() {
+      this.currentPage = 0
+      if (this.isPlaying) {
+        this.pause()
+      }
+      this.play()
+    },
   },
 
   mounted() {

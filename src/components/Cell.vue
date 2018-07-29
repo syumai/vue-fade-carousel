@@ -45,7 +45,6 @@ export default {
       return {
         transitionDuration: `${this.fadeSpeed / 1000}s`,
         transitionDelay: `${fadeGap}s`,
-        filter: `hue-rotate(${this.cellData.index / this.cellData.pageNumber * 360}deg)`,
       }
     },
 
