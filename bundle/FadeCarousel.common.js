@@ -105,7 +105,7 @@ __webpack_require__.r(__webpack_exports__);
 // EXTERNAL MODULE: ./node_modules/@vue/cli-service/lib/commands/build/setPublicPath.js
 var setPublicPath = __webpack_require__("HrLf");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"/Users/shumai/src/vue/vue-fade-carousel/node_modules/.cache/vue-loader","cacheIdentifier":"386c0301-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/FadeCarousel.vue?vue&type=template&id=4c1a7cee&scoped=true&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"/Users/syumai/src/vue/vue-fade-carousel/node_modules/.cache/vue-loader","cacheIdentifier":"04644654-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/FadeCarousel.vue?vue&type=template&id=4c1a7cee&scoped=true&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"fade-carousel"},[_c('div',{ref:"container",staticClass:"cells-container",class:_vm.containerClass},[_vm._t("default"),_vm._l((_vm.pages),function(page,pageIndex){return _c('div',{key:("page-" + pageIndex),staticClass:"page-container",class:_vm.pageContainerClass,style:(_vm.pageContainerStyle(pageIndex))},_vm._l((page),function(c,cellIndex){return _c('cell',{key:("cell-" + cellIndex),attrs:{"cell-data":c,"visible":!_vm.hidden && _vm.cells.length > 0 && _vm.currentPage === pageIndex,"per":_vm.per,"fade-speed":_vm.fadeSpeed,"fade-gap":_vm.fadeGap}})}))})],2),_c('paginator',{ref:"paginator",attrs:{"pageNumber":_vm.pageNumber,"current-page":_vm.currentPage}})],1)}
 var staticRenderFns = []
 
@@ -146,14 +146,14 @@ var web_dom_iterable = __webpack_require__("rGqo");
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.array.from.js
 var es6_array_from = __webpack_require__("HEwt");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"/Users/shumai/src/vue/vue-fade-carousel/node_modules/.cache/vue-loader","cacheIdentifier":"386c0301-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Paginator/Paginator.vue?vue&type=template&id=65c04109&scoped=true&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"/Users/syumai/src/vue/vue-fade-carousel/node_modules/.cache/vue-loader","cacheIdentifier":"04644654-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Paginator/Paginator.vue?vue&type=template&id=65c04109&scoped=true&
 var Paginatorvue_type_template_id_65c04109_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"paginator"},_vm._l((_vm.pageNumber),function(p){return _c('oval',{key:("paginator-p-" + (p - 1)),attrs:{"page":p - 1,"current-page":_vm.currentPage,"onClick":function (e) { return _vm.changePage(p - 1); }}})}))}
 var Paginatorvue_type_template_id_65c04109_scoped_true_staticRenderFns = []
 
 
 // CONCATENATED MODULE: ./src/components/Paginator/Paginator.vue?vue&type=template&id=65c04109&scoped=true&
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"/Users/shumai/src/vue/vue-fade-carousel/node_modules/.cache/vue-loader","cacheIdentifier":"386c0301-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Paginator/Oval.vue?vue&type=template&id=5d9e26b6&scoped=true&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"/Users/syumai/src/vue/vue-fade-carousel/node_modules/.cache/vue-loader","cacheIdentifier":"04644654-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Paginator/Oval.vue?vue&type=template&id=5d9e26b6&scoped=true&
 var Ovalvue_type_template_id_5d9e26b6_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class:_vm.className,attrs:{"page":_vm.page},on:{"click":_vm.onClick}})}
 var Ovalvue_type_template_id_5d9e26b6_scoped_true_staticRenderFns = []
 
@@ -383,7 +383,7 @@ var Paginator_component = normalizeComponent(
 )
 
 /* harmony default export */ var Paginator = (Paginator_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"/Users/shumai/src/vue/vue-fade-carousel/node_modules/.cache/vue-loader","cacheIdentifier":"386c0301-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Cell.vue?vue&type=template&id=0fce43fe&scoped=true&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"/Users/syumai/src/vue/vue-fade-carousel/node_modules/.cache/vue-loader","cacheIdentifier":"04644654-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Cell.vue?vue&type=template&id=0fce43fe&scoped=true&
 var Cellvue_type_template_id_0fce43fe_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class:[_vm.cellData.className, _vm.visibleClassName],style:(_vm.styleObj),domProps:{"innerHTML":_vm._s(_vm.cellData.html)}})}
 var Cellvue_type_template_id_0fce43fe_scoped_true_staticRenderFns = []
 
@@ -2136,5 +2136,5 @@ module.exports = function (object, names) {
 
 /***/ })
 
-/******/ });
+/******/ })["default"];
 //# sourceMappingURL=FadeCarousel.common.js.map
