@@ -29,10 +29,15 @@
         <vue-form-field title="fade gap (ms)">
           <vue-input type="number" v-model.number="fadeGap"/>
         </vue-form-field>
-        <div class="container">
+        <div class="button-container">
           <vue-button class="round" @click.prevent="$refs.carousel.play()">play</vue-button>
           <vue-button class="round" @click.prevent="$refs.carousel.pause()">pause</vue-button>
           <vue-button class="round" @click.prevent="$refs.carousel.refresh()">refresh</vue-button>
+        </div>
+        <div class="button-container">
+          <vue-button href="https://github.com/syumai/vue-fade-carousel/" target="_blank" icon-right="open_in_new">
+            View code on GitHub
+          </vue-button>
         </div>
       </form>
     </div>
@@ -101,7 +106,8 @@ margin-size = 5px
       display: flex
       align-items: flex-start
       flex-direction: column
-      .container
+      .button-container
+        margin: 5px 0
         width: 100%
         display: flex
         justify-content: center

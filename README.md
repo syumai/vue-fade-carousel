@@ -1,5 +1,9 @@
 # vue-fade-carousel
 
+## Demo
+
+https://syumai.github.io/vue-fade-carousel/dist/
+
 ## Project setup
 ```
 yarn install
@@ -10,7 +14,12 @@ yarn install
 yarn run serve
 ```
 
-### Compiles and minifies for production
+### Building bundle for production
+```
+yarn run build-bundle
+```
+
+### Building demo app
 ```
 yarn run build
 ```

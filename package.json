@@ -1,10 +1,11 @@
 {
   "name": "vue-fade-carousel",
   "version": "0.1.0",
-  "private": true,
+  "main": "bundle/FadeCarousel.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build-bundle": "vue-cli-service build --dest bundle --target lib --name FadeCarousel ./src/components/bundle.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
