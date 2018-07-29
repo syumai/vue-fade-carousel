@@ -3,6 +3,7 @@
     :class="className"
     :page="page"
     @click="onClick"
+    :style="styleObj"
   />
 </template>
 
@@ -25,16 +26,43 @@ export default {
       type: Function,
       default: () => {},
     },
+
+    activeColor: {
+      type: String,
+      default: '',
+    },
+
+    inactiveColor: {
+      type: String,
+      default: '',
+    },
   },
 
   computed: {
+    isActive() {
+      return this.page === this.currentPage
+    },
     className() {
       const classBase = ['oval']
-      if (this.page === this.currentPage) {
+      if (this.isActive) {
         classBase.push('active')
       }
       return classBase
     },
+
+    styleObj() {
+      const style = {}
+      if (this.isActive) {
+        if (this.activeColor) {
+          style.backgroundColor = this.activeColor
+        }
+      } else {
+        if (this.inactiveColor) {
+          style.backgroundColor = this.inactiveColor
+        }
+      }
+      return style
+    }
   },
 }
 </script>

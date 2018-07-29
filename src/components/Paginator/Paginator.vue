@@ -6,6 +6,8 @@
       :current-page="currentPage"
       :key="`paginator-p-${p - 1}`"
       :onClick="(e) => changePage(p - 1)"
+      :active-color="ovalActiveColor"
+      :inactive-color="ovalInactiveColor"
     />
   </div>
 </template>
@@ -29,6 +31,16 @@ export default {
     pageNumber: {
       type: Number,
       default: 0,
+    },
+
+    ovalActiveColor: {
+      type: String,
+      default: '',
+    },
+
+    ovalInactiveColor: {
+      type: String,
+      default: '',
     },
   },
 

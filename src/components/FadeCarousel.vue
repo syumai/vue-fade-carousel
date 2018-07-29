@@ -23,6 +23,8 @@
     <paginator
       :pageNumber="pageNumber"
       :current-page="currentPage"
+      :oval-active-color="ovalActiveColor"
+      :oval-inactive-color="ovalInactiveColor"
       ref="paginator"
     />
   </div>
@@ -91,7 +93,15 @@ export default {
     autoplay: {
       type: Boolean,
       default: true,
-    }
+    },
+    ovalActiveColor: {
+      type: String,
+      default: '',
+    },
+    ovalInactiveColor: {
+      type: String,
+      default: '',
+    },
   },
 
   components: {
