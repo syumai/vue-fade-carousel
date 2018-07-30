@@ -114,12 +114,12 @@ __webpack_require__.r(__webpack_exports__);
 // EXTERNAL MODULE: ./node_modules/@vue/cli-service/lib/commands/build/setPublicPath.js
 var setPublicPath = __webpack_require__("HrLf");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"/Users/syumai/src/vue/vue-fade-carousel/node_modules/.cache/vue-loader","cacheIdentifier":"04644654-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/FadeCarousel.vue?vue&type=template&id=7631a368&scoped=true&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"/Users/syumai/src/vue/vue-fade-carousel/node_modules/.cache/vue-loader","cacheIdentifier":"04644654-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/FadeCarousel.vue?vue&type=template&id=659b1d76&scoped=true&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"fade-carousel"},[_c('div',{ref:"container",staticClass:"cells-container",class:_vm.containerClass},[_vm._t("default"),_vm._l((_vm.pages),function(page,pageIndex){return _c('div',{key:("page-" + pageIndex),staticClass:"page-container",class:_vm.pageContainerClass,style:(_vm.pageContainerStyle(pageIndex))},_vm._l((page),function(c,cellIndex){return _c('cell',{key:("cell-" + cellIndex),attrs:{"cell-data":c,"visible":!_vm.hidden && _vm.cells.length > 0 && _vm.currentPage === pageIndex,"per":_vm.per,"fade-speed":_vm.fadeSpeed,"fade-gap":_vm.fadeGap}})}))})],2),_c('paginator',{ref:"paginator",attrs:{"pageNumber":_vm.pageNumber,"current-page":_vm.currentPage,"oval-active-color":_vm.ovalActiveColor,"oval-inactive-color":_vm.ovalInactiveColor}})],1)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/FadeCarousel.vue?vue&type=template&id=7631a368&scoped=true&
+// CONCATENATED MODULE: ./src/components/FadeCarousel.vue?vue&type=template&id=659b1d76&scoped=true&
 
 // CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/builtin/es6/arrayWithoutHoles.js
 function _arrayWithoutHoles(arr) {
@@ -558,11 +558,10 @@ var Cell_component = normalizeComponent(
 var convertCells = function convertCells(container) {
   var children = Array.from(container.children);
   var pageNumber = children.length;
-  return children.map(function (cell, index) {
+  return children.map(function (cell) {
     return {
       html: cell.innerHTML,
       className: cell.className,
-      index: index,
       pageNumber: pageNumber
     };
   });
@@ -571,6 +570,12 @@ var convertCells = function convertCells(container) {
 var removeOriginalCells = function removeOriginalCells(container) {
   return Array.from(container.children).forEach(function (cell) {
     return container.removeChild(cell);
+  });
+};
+
+var setIndicesOfCells = function setIndicesOfCells(cells) {
+  cells.forEach(function (cell, index) {
+    cell.index = index;
   });
 };
 
@@ -588,6 +593,14 @@ var removeOriginalCells = function removeOriginalCells(container) {
     per: {
       type: Number,
       default: 2
+    },
+    maxPages: {
+      type: Number,
+      default: 0
+    },
+    random: {
+      type: Boolean,
+      default: false
     },
     containerClass: {
       type: String,
@@ -767,10 +780,31 @@ var removeOriginalCells = function removeOriginalCells(container) {
     if (container) {
       var _this$cells;
 
+      var insertedCells = null;
       var cells = convertCells(container);
       removeOriginalCells(container);
 
-      (_this$cells = this.cells).push.apply(_this$cells, _toConsumableArray(cells));
+      if (this.random && this.maxPages > 0) {
+        var result = [];
+
+        var seed = _toConsumableArray(cells);
+
+        var pickupNumbers = this.per * this.maxPages;
+
+        for (var i = 0; i < pickupNumbers; i++) {
+          var index = Math.floor(Math.random() * seed.length);
+          result.push(seed[index]);
+          seed.splice(index, 1);
+        }
+
+        insertedCells = result;
+      } else {
+        insertedCells = cells;
+      }
+
+      setIndicesOfCells(insertedCells);
+
+      (_this$cells = this.cells).push.apply(_this$cells, _toConsumableArray(insertedCells));
     }
 
     if (this.autoplay) {
@@ -792,8 +826,8 @@ var removeOriginalCells = function removeOriginalCells(container) {
 });
 // CONCATENATED MODULE: ./src/components/FadeCarousel.vue?vue&type=script&lang=js&
  /* harmony default export */ var components_FadeCarouselvue_type_script_lang_js_ = (FadeCarouselvue_type_script_lang_js_); 
-// EXTERNAL MODULE: ./src/components/FadeCarousel.vue?vue&type=style&index=0&id=7631a368&lang=stylus&scoped=true&
-var FadeCarouselvue_type_style_index_0_id_7631a368_lang_stylus_scoped_true_ = __webpack_require__("YL8D");
+// EXTERNAL MODULE: ./src/components/FadeCarousel.vue?vue&type=style&index=0&id=659b1d76&lang=stylus&scoped=true&
+var FadeCarouselvue_type_style_index_0_id_659b1d76_lang_stylus_scoped_true_ = __webpack_require__("93+k");
 
 // CONCATENATED MODULE: ./src/components/FadeCarousel.vue
 
@@ -810,7 +844,7 @@ var FadeCarousel_component = normalizeComponent(
   staticRenderFns,
   false,
   null,
-  "7631a368",
+  "659b1d76",
   null
   
 )
@@ -893,6 +927,24 @@ module.exports = function (object, index, value) {
   else object[index] = value;
 };
 
+
+/***/ }),
+
+/***/ "8iKz":
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ "93+k":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_index_js_ref_11_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_11_oneOf_1_2_node_modules_stylus_loader_index_js_ref_11_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FadeCarousel_vue_vue_type_style_index_0_id_659b1d76_lang_stylus_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("8iKz");
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_index_js_ref_11_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_11_oneOf_1_2_node_modules_stylus_loader_index_js_ref_11_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FadeCarousel_vue_vue_type_style_index_0_id_659b1d76_lang_stylus_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_index_js_ref_11_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_11_oneOf_1_2_node_modules_stylus_loader_index_js_ref_11_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FadeCarousel_vue_vue_type_style_index_0_id_659b1d76_lang_stylus_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* unused harmony reexport * */
+ /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_index_js_ref_11_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_11_oneOf_1_2_node_modules_stylus_loader_index_js_ref_11_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FadeCarousel_vue_vue_type_style_index_0_id_659b1d76_lang_stylus_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -1333,13 +1385,6 @@ module.exports = __webpack_require__("nh4g") ? function (object, key, value) {
 
 /***/ }),
 
-/***/ "N0w7":
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
 /***/ "OP3Y":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1551,17 +1596,6 @@ module.exports = function (that, target, C) {
   } return that;
 };
 
-
-/***/ }),
-
-/***/ "YL8D":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_index_js_ref_11_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_11_oneOf_1_2_node_modules_stylus_loader_index_js_ref_11_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FadeCarousel_vue_vue_type_style_index_0_id_7631a368_lang_stylus_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("N0w7");
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_index_js_ref_11_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_11_oneOf_1_2_node_modules_stylus_loader_index_js_ref_11_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FadeCarousel_vue_vue_type_style_index_0_id_7631a368_lang_stylus_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_index_js_ref_11_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_11_oneOf_1_2_node_modules_stylus_loader_index_js_ref_11_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FadeCarousel_vue_vue_type_style_index_0_id_7631a368_lang_stylus_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* unused harmony reexport * */
- /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_mini_css_extract_plugin_dist_loader_js_node_modules_css_loader_index_js_ref_11_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_lib_index_js_ref_11_oneOf_1_2_node_modules_stylus_loader_index_js_ref_11_oneOf_1_3_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FadeCarousel_vue_vue_type_style_index_0_id_7631a368_lang_stylus_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 

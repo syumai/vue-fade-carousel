@@ -37,10 +37,9 @@ import Cell from './Cell.vue'
 const convertCells = container => {
   const children = Array.from(container.children)
   const pageNumber = children.length
-  return children.map((cell, index) => ({
+  return children.map(cell => ({
       html: cell.innerHTML,
       className: cell.className,
-      index,
       pageNumber,
   }))
 }
@@ -48,6 +47,12 @@ const convertCells = container => {
 const removeOriginalCells = container => Array
   .from(container.children)
   .forEach(cell => container.removeChild(cell))
+
+const setIndicesOfCells = cells => {
+  cells.forEach((cell, index) => {
+    cell.index = index
+  })
+}
 
 export default {
   name: 'FadeCarousel',
@@ -65,6 +70,14 @@ export default {
     per: {
       type: Number,
       default: 2,
+    },
+    maxPages: {
+      type: Number,
+      default: 0,
+    },
+    random: {
+      type: Boolean,
+      default: false,
     },
     containerClass: {
       type: String,
@@ -225,9 +238,24 @@ export default {
   mounted() {
     const { container } = this.$refs
     if (container) {
+      let insertedCells = null
       const cells = convertCells(container)
       removeOriginalCells(container)
-      this.cells.push(...cells)
+      if (this.random && this.maxPages > 0) {
+        const result = []
+        const seed = [...cells]
+        const pickupNumbers = this.per * this.maxPages
+        for (let i = 0; i < pickupNumbers; i++) {
+          const index = Math.floor(Math.random() * seed.length)
+          result.push(seed[index])
+          seed.splice(index, 1)
+        }
+        insertedCells = result
+      } else {
+        insertedCells = cells
+      }
+      setIndicesOfCells(insertedCells)
+      this.cells.push(...insertedCells)
     }
     if (this.autoplay) {
       this.hide()
